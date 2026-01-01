@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner imput = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         Turma turma = new Turma();
         Aluno p1 = new Aluno("João",2315);
@@ -28,12 +28,13 @@ public class Main {
 
         while (true) {
             System.out.println("deseja Procurar Aluno? [S/N]: ");
-            String escolha = imput.nextLine();
+            String escolha = input.nextLine().toUpperCase();
 
             System.out.println("deseja buscar o Aluno por nome ou matricula?");
-            String opcao = imput.nextLine();
+            String opcao = input.nextLine().toLowerCase();
 
             if(escolha.equals("N")){
+                System.out.println("Encerrando o programa");
                 break;
             }
 
