@@ -23,33 +23,53 @@ public class Main {
 
         turma.posicaoPorNotas();
 
-        Boletim BoletimDoAluno = turma.buscarPorMatricula(2315);
-        Boletim Boleto = turma.buscarPorNome("Carlos");
+       
 
         while (true) {
-            System.out.println("deseja Procurar Aluno? [S/N]: ");
+            System.out.print("deseja Procurar Aluno? [S/N]: ");
             String escolha = input.nextLine().toUpperCase();
-
-            System.out.println("deseja buscar o Aluno por nome ou matricula?");
-            String opcao = input.nextLine().toLowerCase();
 
             if(escolha.equals("N")){
                 System.out.println("Encerrando o programa");
                 break;
             }
 
+            System.out.print("deseja buscar o Aluno por nome ou matricula? ");
+            String opcao = input.nextLine().toLowerCase();
+
+           
+
             if(opcao.equals("nome")){
-                // opcao = Boleto;
+                System.out.println("digite o nome do aluno: ");
+                String nome = input.nextLine();
+
+                Boletim b = turma.buscarPorNome(nome);
+
+                if(b != null){
+                    System.out.println("aluno encontrado.");
+                    System.out.println(b);
+                }else{
+                    System.out.println("aluno nao encontrado.");
+                }
             }
+
+
+            if(opcao.equals("matricula")){
+                System.out.print("Digite o Número da Matrícula");
+                int number = input.nextInt();
+                Boletim n = turma.buscarPorMatricula(number);
+
+                if(n != null){
+                    System.out.println("aluno encontrado\n");
+                    System.out.println(n);
+                    
+                }else{
+                    System.out.println("aluno nao encontrado.\n");
+                }
+            }
+
         }
 
-        if(BoletimDoAluno != null){
-            System.out.println("aluno encontrado\n");
-
-        }else if(Boleto != null){
-            System.out.println("aluno encontrado\n");
-        }else{
-            System.out.println("aluno nao encontrado.\n");
-        }
+        
     }
 }

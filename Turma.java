@@ -19,14 +19,14 @@ public class Turma {
     }
 
     public void posicaoPorNotas(){
-        System.out.println("=== Melhores Notas ===");
+        System.out.println("=== Melhores Notas ===\n");
 
         for(Boletim b : boletin){
             if(b.calcularMedia() >= 7){
                 System.out.println(b.toString());
             }
         }
-        System.out.println("=== Piores Notas ===");
+        System.out.println("=== Piores Notas ===\n");
 
         for(Boletim b : boletin){
             if(b.calcularMedia() < 7){

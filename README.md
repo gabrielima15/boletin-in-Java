@@ -1,4 +1,4 @@
-# 📘 Sistema de Boletim em Java ☕
+# Sistema de Boletim em Java :coffee:
 
 Projeto desenvolvido para praticar conceitos fundamentais de Java e Programação Orientada a Objetos.
 
