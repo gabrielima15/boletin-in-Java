@@ -1,8 +1,5 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
 
         Turma turma = new Turma();
         Aluno p1 = new Aluno("João",2315);
@@ -24,51 +21,64 @@ public class Main {
         turma.posicaoPorNotas();
 
        
+        
+       
 
-        while (true) {
-            System.out.print("deseja Procurar Aluno? [S/N]: ");
-            String escolha = input.nextLine().toUpperCase();
+        // while (true) {
+        //     try{
 
-            if(escolha.equals("N")){
-                System.out.println("Encerrando o programa");
-                break;
-            }
+        //         System.out.print("deseja Procurar Aluno? [S/N]: ");
+        //         String escolha = input.nextLine().trim().toUpperCase();
 
-            System.out.print("deseja buscar o Aluno por nome ou matricula? ");
-            String opcao = input.nextLine().toLowerCase();
+        //         if(escolha.equals("N")){
+        //             System.out.println("Encerrando o programa");
+        //             break;
+        //         }
+
+        //         System.out.print("deseja buscar o Aluno por nome ou matricula? ");
+        //         String opcao = input.nextLine().trim().toLowerCase();
 
            
 
-            if(opcao.equals("nome")){
-                System.out.println("digite o nome do aluno: ");
-                String nome = input.nextLine();
+                // if(opcao.equals("nome")){
+                //     System.out.println("digite o nome do aluno: ");
+                //     String nome = input.nextLine();
 
-                Boletim b = turma.buscarPorNome(nome);
+                //     Tratamento.validarNome(nome);
 
-                if(b != null){
-                    System.out.println("aluno encontrado.");
-                    System.out.println(b);
-                }else{
-                    System.out.println("aluno nao encontrado.");
-                }
-            }
+                //     Boletim b = turma.buscarPorNome(nome);
+
+                //     if(b != null){
+                //         System.out.println("aluno encontrado.");
+                //         System.out.println(b);
+                //     }else{
+                //         System.out.println("aluno nao encontrado.");
+                //     }
+                // }
 
 
-            if(opcao.equals("matricula")){
-                System.out.print("Digite o Número da Matrícula");
-                int number = input.nextInt();
-                Boletim n = turma.buscarPorMatricula(number);
+                // if(opcao.equals("matricula")){
+                //     System.out.print("Digite o Número da Matrícula");
+                //     int number = input.nextInt();
 
-                if(n != null){
-                    System.out.println("aluno encontrado\n");
-                    System.out.println(n);
+            //         Tratamento.validarMatricula(number);
                     
-                }else{
-                    System.out.println("aluno nao encontrado.\n");
-                }
-            }
+            //         Boletim n = turma.buscarPorMatricula(number);
 
-        }
+            //         if(n != null){
+            //             System.out.println("aluno encontrado\n");
+            //             System.out.println(n);
+                        
+            //         }else{
+            //             System.out.println("aluno nao encontrado.\n");
+            //         }
+            //     }
+            // }catch(Exception e){
+            //     System.out.println(e.getMessage());
+                
+            // }
+
+        // }
 
         
     }
