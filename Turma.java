@@ -1,10 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Turma {
     private List<Boletim> boletin;
-    Scanner input = new Scanner(System.in);
 
 
     public Turma(){
@@ -43,6 +41,10 @@ public class Turma {
             if(b.getAluno().GetMatricula() == matricula){
                 return b;
             }
+            
+            if(b.getAluno().GetMatricula() != matricula){
+                throw new ArithmeticException("numeração inválida");
+            }
 
         }
         
@@ -58,65 +60,5 @@ public class Turma {
         return null;
     }
 
-
-    public void RodarPrograma(){
-         while (true) {
-            try{
-
-                System.out.print("deseja Procurar Aluno? [S/N]: ");
-                String escolha = input.nextLine().trim().toUpperCase();
-
-                if(escolha.equals("N")){
-                    System.out.println("Encerrando o programa");
-                    break;
-                }
-
-                System.out.print("deseja buscar o Aluno por nome ou matricula? ");
-                String opcao = input.nextLine().trim().toLowerCase();
-
-           
-
-                if(opcao.equals("nome")){
-                    System.out.println("digite o nome do aluno: ");
-                    String nome = input.nextLine();
-
-                    Tratamento.validarNome(nome);
-
-                    Boletim b = buscarPorNome(nome);
-
-                    if(b != null){
-                        System.out.println("aluno encontrado.");
-                        System.out.println(b);
-                    }else{
-                        System.out.println("aluno nao encontrado.");
-                    }
-                }
-
-
-                if(opcao.equals("matricula")){
-                    System.out.print("Digite o Número da Matrícula");
-                    int number = Integer.parseInt(input.nextLine());
-
-                    Tratamento.validarMatricula(number);
-                    
-                    Boletim n = buscarPorMatricula(number);
-
-                    if(n != null){
-                        System.out.println("aluno encontrado\n");
-                        System.out.println(n);
-                        
-                    }else{
-                        System.out.println("aluno nao encontrado.\n");
-                    }
-                }
-            }catch(Exception e){
-                System.out.println(e.getMessage());
-                
-            }
-
-        }
-
-        
-    }
 }
 
