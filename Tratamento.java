@@ -3,15 +3,6 @@ public class  Tratamento extends Exception{
     public Tratamento(String smg){
         super(smg);
     }
-    public static void validarNome(String nome){
-        if (nome == null || nome.isBlank()) {
-         throw new IllegalArgumentException ("entrada inválida: Apenas nomes do Aluno\n");
-        }
-
-        if(!nome.matches("^[A-Za-zÀ-ỹ]+$")){
-            throw new IllegalArgumentException("entrada inválida: digite o nome do Aluno\n");
-        }
-    }
 
     public static int validarMatricula(int matricula){
         String valor = String.valueOf(matricula);
@@ -41,18 +32,31 @@ public class  Tratamento extends Exception{
         }
         return opcao;
     }
+
     public static String capitalizar(String str) {
         if (str == null || str.isEmpty()) {
             return str;
         }
-        // Pega a primeira letra e converte para maiúscula
+        // Pega a primeira letra e converte para maiúscula.
         String primeiraLetra = str.substring(0, 1).toUpperCase();
-        // Pega o resto da string e converte para minúscula (opcional)
+        // Pega o resto da string e converte para minúscula.
         String restante = str.substring(1).toLowerCase();
 
         String novoNome = primeiraLetra + restante;
 
         return novoNome;
+    }
+
+    public static String validarNome(String nomeEntrada){
+        if (nomeEntrada == null || nomeEntrada.isBlank()) {
+         throw new IllegalArgumentException ("entrada inválida: campo nome não pode ser Vazio\n");
+        }
+
+        if(!nomeEntrada.matches("^[A-Za-zÀ-ỹ]+$")){
+            throw new IllegalArgumentException("argumento invalido: digite o nome certo do Aluno\n");
+        }
+
+        return capitalizar(nomeEntrada.trim());
     }
 
 }

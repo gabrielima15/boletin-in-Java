@@ -24,9 +24,6 @@ public class Main {
 
         // turma.posicaoPorNotas();
 
-       
-        
-       
 
         while (true) {
             try{
@@ -35,10 +32,7 @@ public class Main {
                 String escolha = input.nextLine().trim().toUpperCase();
 
                 Tratamento.perguntar(escolha);
-                // if(!escolha.equals("N") && !escolha.equals("S")){
-                //    throw new IllegalArgumentException("valores inválido: digite apenas S ou N.");
-                // }
-
+                
                 if(escolha.equals("N")){
                     System.out.println("Encerrando o programa.");
                     break;
@@ -48,19 +42,14 @@ public class Main {
                 String opcao = input.nextLine().trim().toLowerCase();
 
                 Tratamento.validarOpcao(opcao);
-                // if(!opcao.equals("nome") && !opcao.equals("matricula")){
-
-                // }
-           
 
                 if(opcao.equals("nome")){
                     System.out.println("digite o nome do aluno: ");
+
                     String nome = input.nextLine();
-                    Tratamento.capitalizar(nome);
-
-                    Tratamento.validarNome(nome);
-
-                    Boletim b = turma.buscarPorNome(nome);
+                    String capitar = Tratamento.capitalizar(nome);
+                    String novoNome = Tratamento.validarNome(capitar);
+                    Boletim b = turma.buscarPorNome(novoNome);
 
                     if(b != null){
                         System.out.println("aluno encontrado.");
@@ -87,6 +76,7 @@ public class Main {
                         System.out.println("aluno nao encontrado.\n");
                     }
                 }
+
             }catch(IllegalArgumentException e){
                 System.out.println(e.getMessage());
                 
